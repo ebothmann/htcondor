@@ -37,6 +37,10 @@ request_disk = job_properties["resources"].get("disk_mb", None)
 if request_disk is not None:
     sub["request_disk"] = str(request_disk)
 
+request_runtime = job_properties["resources"].get("runtime", None)
+if request_runtime is not None:
+    sub["+MaxRuntime"] = str(request_runtime)
+
 schedd = htcondor.Schedd()
 with schedd.transaction() as txn:
     clusterID = sub.queue(txn)
