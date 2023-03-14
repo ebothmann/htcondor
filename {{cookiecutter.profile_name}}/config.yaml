@@ -7,3 +7,6 @@ restart-times: 5
 local-cores: 10
 jobs: 5000
 verbose: false
+latency-wait: 10
+default-resources:
+  - runtime=3600
